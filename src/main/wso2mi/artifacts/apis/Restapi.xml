@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/restapi" name="Restapi" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/getItems?itemId={itemId}">
+        <inSequence>
+            <variable name="itemId" type="STRING" expression="${params.queryParams.itemId}"/>
+            <log category="INFO" logMessageID="false" logFullPayload="false">
+                <message>${vars.itemId}</message>
+            </log>
+            <respond description="End"/>
+        </inSequence>
+        <faultSequence>
+        </faultSequence>
+    </resource>
+</api>
